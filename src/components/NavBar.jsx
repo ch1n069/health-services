@@ -3,8 +3,17 @@ import { IoMdMenu } from "react-icons/io";
 const NavBar = () => {
   const [nav, setNav] = useState(false);
   const handleToggleNav = () => {
-    setNav(!nav);
+    const isNavOpen = !nav; // Capture the updated value of nav
+    setNav(isNavOpen); // Update the state
+
+    // Update the document body style based on the updated state value
+    if (isNavOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "scroll";
+    }
   };
+
   return (
     <div className="absolute w-full flex justify-between p-4 items-center">
       <h1 className="text-white font-semibold text-2xl z-20"> Health Care</h1>
